@@ -11,7 +11,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView{
-        Text("Hello, World!")
+            VStack{
+                HStack{
+                    Spacer()
+                    Image("pill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: <#T##CGFloat?#>, height: <#T##CGFloat?#>, alignment: <#T##Alignment#>)
+                }
+            Text("Hello, World!")
+                
+            .navigationBarTitle("Home")
+            }
+            
         }
     }
 }
