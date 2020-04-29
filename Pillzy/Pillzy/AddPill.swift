@@ -8,8 +8,10 @@
 
 import SwiftUI
 import UserNotifications
+import RealmSwift
 struct AddPill: View {
     @State var pillName = ""
+    
     var body: some View {
         ZStack{
         Color("Background")

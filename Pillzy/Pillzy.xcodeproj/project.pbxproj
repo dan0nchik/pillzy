@@ -13,8 +13,27 @@
 		6966184E2451B3BC007F5D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6966184D2451B3BC007F5D72 /* Assets.xcassets */; };
 		696618512451B3BC007F5D72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 696618502451B3BC007F5D72 /* Preview Assets.xcassets */; };
 		696618542451B3BC007F5D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696618522451B3BC007F5D72 /* LaunchScreen.storyboard */; };
+		69CED45A245A1E4300D24F4D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED456245A1E3E00D24F4D /* Realm.framework */; };
+		69CED45B245A1E4300D24F4D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED456245A1E3E00D24F4D /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69CED45D245A1E4400D24F4D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED457245A1E3E00D24F4D /* RealmSwift.framework */; };
+		69CED45E245A1E4400D24F4D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED457245A1E3E00D24F4D /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69FE24A52459F58800BD7C2B /* AddPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE24A42459F58800BD7C2B /* AddPill.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69CED45C245A1E4300D24F4D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69CED45E245A1E4400D24F4D /* RealmSwift.framework in Embed Frameworks */,
+				69CED45B245A1E4300D24F4D /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		696618442451B3BA007F5D72 /* Pillzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +44,8 @@
 		696618502451B3BC007F5D72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		696618532451B3BC007F5D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		696618552451B3BC007F5D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69CED456245A1E3E00D24F4D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		69CED457245A1E3E00D24F4D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		69FE24A42459F58800BD7C2B /* AddPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69CED45D245A1E4400D24F4D /* RealmSwift.framework in Frameworks */,
+				69CED45A245A1E4300D24F4D /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +65,8 @@
 		6966183B2451B3BA007F5D72 = {
 			isa = PBXGroup;
 			children = (
+				69CED456245A1E3E00D24F4D /* Realm.framework */,
+				69CED457245A1E3E00D24F4D /* RealmSwift.framework */,
 				696618462451B3BA007F5D72 /* Pillzy */,
 				696618452451B3BA007F5D72 /* Products */,
 			);
@@ -88,6 +113,7 @@
 				696618402451B3BA007F5D72 /* Sources */,
 				696618412451B3BA007F5D72 /* Frameworks */,
 				696618422451B3BA007F5D72 /* Resources */,
+				69CED45C245A1E4300D24F4D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +318,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pillzy/Preview Content\"";
 				DEVELOPMENT_TEAM = CQT34X72YN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Pillzy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,6 +342,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pillzy/Preview Content\"";
 				DEVELOPMENT_TEAM = CQT34X72YN;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Pillzy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -320,7 +354,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
