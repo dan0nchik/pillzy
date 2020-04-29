@@ -9,9 +9,14 @@
 import SwiftUI
 import UserNotifications
 import RealmSwift
+
+class Pill: Object {
+    @objc dynamic var name = ""
+}
+
 struct AddPill: View {
     @State var pillName = ""
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack{
         Color("Background")
@@ -46,6 +51,23 @@ struct AddPill: View {
                     // add our notification request
                     UNUserNotificationCenter.current().add(request)
                 }, label: {Text("n").padding()})
+                
+                Button(action: {
+                    do{
+                        let pill = Pill()
+                        pill.name = self.pillName
+                        try realm.write({
+                            realm.add(pill)
+                            for i in res{
+                                print(i.name)
+                            }
+                        })
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    catch{
+                        print(error.localizedDescription)
+                    }
+                }, label: {Text("Save").font(.title).padding()})
                 Spacer()
         }
         }.onAppear {

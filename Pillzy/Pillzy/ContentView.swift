@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import RealmSwift
 struct ContentView: View {
     @State var showAddMed = false
     @State private var isPressed: Bool = false
@@ -28,9 +28,15 @@ struct ContentView: View {
                     .padding(60)
                     .clipShape(Circle())
                 }
-                card(with: "Nurofen", time: "15:00")
-                Spacer()
+                ScrollView{
+                ForEach(res, id: \.self){ i in
+                    self.card(with: i.name, time: "")
+                    .padding(20)
+                }
+                }
+                    Spacer()
             }
+            
             VStack{
             Spacer()
             Button(action: {
