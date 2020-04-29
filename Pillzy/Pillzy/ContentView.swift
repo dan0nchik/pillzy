@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showAddMed = false
+    @State private var isPressed: Bool = false
     var body: some View {
         ZStack{
             Color("Background")
@@ -34,6 +35,7 @@ struct ContentView: View {
             Spacer()
             Button(action: {
                 self.showAddMed.toggle()
+                self.isPressed.toggle()
             }) {
                 Text("+")
                 .foregroundColor(.gray)
@@ -45,6 +47,9 @@ struct ContentView: View {
             .lightShadow()
             .darkShadow()
             .padding()
+                .scaleEffect(self.isPressed ? 0.98: 1)
+                .foregroundColor(.primary)
+                .animation(.spring())
             }
         }
         .edgesIgnoringSafeArea(.all)
