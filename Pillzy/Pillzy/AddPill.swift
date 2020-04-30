@@ -69,7 +69,7 @@ struct AddPill: View {
                     }
                     Text("Notification").bold()
                         .padding()
-                    DatePicker("", selection: $remind, in: Date()..., displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $remind, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                     Button(action: {
                         if(self.pillName != ""){
@@ -89,8 +89,8 @@ struct AddPill: View {
                         content.title = "Drink \(self.pill.name)"
                         content.subtitle = "\(self.pill.meal) meal"
                         content.sound = UNNotificationSound.default
-                        let calendar = Calendar.current
-                            let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute, .day], from: self.pill.time), repeats: true)
+                            let calendar = Calendar.autoupdatingCurrent
+                            let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.pill.time), repeats: true)
                         
                         // choose a random identifier
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
