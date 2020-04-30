@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Pillzy.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
