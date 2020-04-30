@@ -53,8 +53,10 @@ struct AddPill: View {
                 }, label: {Text("n").padding()})
                 
                 Button(action: {
+                    if(self.pillName != ""){
                     do{
                         let pill = Pill()
+                        
                         pill.name = self.pillName
                         try realm.write({
                             realm.add(pill)
@@ -62,12 +64,26 @@ struct AddPill: View {
                                 print(i.name)
                             }
                         })
-                        self.presentationMode.wrappedValue.dismiss()
+                        
                     }
                     catch{
                         print(error.localizedDescription)
                     }
-                }, label: {Text("Save").font(.title).padding()})
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Save").font(.title).bold()
+                       .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                        .foregroundColor(.pink)
+                        .background(Color("Background"))
+                        .cornerRadius(20)
+                        .padding()
+                        .lightShadow()
+                        .darkShadow()
+                        
+                    
+                })
                 Spacer()
         }
         }.onAppear {

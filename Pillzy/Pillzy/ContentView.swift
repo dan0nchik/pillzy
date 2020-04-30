@@ -18,14 +18,15 @@ struct ContentView: View {
             VStack{
                 HStack {
                     VStack{
-                        Text("Pillzy").font(.system(.largeTitle, design: .rounded)).bold().padding(50)
+                        Text("Pillzy").font(.system(.largeTitle, design: .rounded)).bold().padding(40)
+                        //Text("Stay healthier").font(.system(.largeTitle, design: .rounded))
                     }
                     Spacer()
                     Image("pill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                         .frame(width: 100, height: 100)
-                    .padding(60)
+                    .padding(70)
                     .clipShape(Circle())
                 }
                 ScrollView{
