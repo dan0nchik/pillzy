@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69097D6C245AF3620078409B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69097D6A245AF3620078409B /* Interface.storyboard */; };
+		69097D6E245AF3660078409B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69097D6D245AF3660078409B /* Assets.xcassets */; };
+		69097D75245AF3670078409B /* PillzyWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 69097D74245AF3670078409B /* PillzyWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		69097D7A245AF3670078409B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69097D79245AF3670078409B /* ContentView.swift */; };
+		69097D7C245AF3670078409B /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69097D7B245AF3670078409B /* HostingController.swift */; };
+		69097D7E245AF3670078409B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69097D7D245AF3670078409B /* ExtensionDelegate.swift */; };
+		69097D80245AF3670078409B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69097D7F245AF3670078409B /* NotificationController.swift */; };
+		69097D82245AF3670078409B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69097D81245AF3670078409B /* NotificationView.swift */; };
+		69097D84245AF3680078409B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69097D83245AF3680078409B /* Assets.xcassets */; };
+		69097D87245AF3680078409B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69097D86245AF3680078409B /* Preview Assets.xcassets */; };
+		69097D8C245AF3680078409B /* PillzyWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 69097D68245AF3620078409B /* PillzyWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		696618482451B3BA007F5D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696618472451B3BA007F5D72 /* AppDelegate.swift */; };
 		6966184A2451B3BA007F5D72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696618492451B3BA007F5D72 /* SceneDelegate.swift */; };
 		6966184C2451B3BA007F5D72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6966184B2451B3BA007F5D72 /* ContentView.swift */; };
@@ -21,7 +32,46 @@
 		69FE24A52459F58800BD7C2B /* AddPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE24A42459F58800BD7C2B /* AddPill.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		69097D76245AF3670078409B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6966183C2451B3BA007F5D72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69097D73245AF3670078409B;
+			remoteInfo = "PillzyWatch Extension";
+		};
+		69097D8A245AF3680078409B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6966183C2451B3BA007F5D72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69097D67245AF3620078409B;
+			remoteInfo = PillzyWatch;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		69097D8D245AF3680078409B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				69097D8C245AF3680078409B /* PillzyWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69097D90245AF3680078409B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				69097D75245AF3670078409B /* PillzyWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69CED45C245A1E4300D24F4D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,6 +87,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		69097D68245AF3620078409B /* PillzyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillzyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69097D6B245AF3620078409B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		69097D6D245AF3660078409B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69097D6F245AF3660078409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69097D74245AF3670078409B /* PillzyWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PillzyWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69097D79245AF3670078409B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		69097D7B245AF3670078409B /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		69097D7D245AF3670078409B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		69097D7F245AF3670078409B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		69097D81245AF3670078409B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		69097D83245AF3680078409B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69097D86245AF3680078409B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		69097D88245AF3680078409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69097D89245AF3680078409B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		696618442451B3BA007F5D72 /* Pillzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		696618472451B3BA007F5D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		696618492451B3BA007F5D72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +116,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		69097D71245AF3670078409B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		696618412451B3BA007F5D72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,12 +135,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69097D69245AF3620078409B /* PillzyWatch */ = {
+			isa = PBXGroup;
+			children = (
+				69097D6A245AF3620078409B /* Interface.storyboard */,
+				69097D6D245AF3660078409B /* Assets.xcassets */,
+				69097D6F245AF3660078409B /* Info.plist */,
+			);
+			path = PillzyWatch;
+			sourceTree = "<group>";
+		};
+		69097D78245AF3670078409B /* PillzyWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				69097D79245AF3670078409B /* ContentView.swift */,
+				69097D7B245AF3670078409B /* HostingController.swift */,
+				69097D7D245AF3670078409B /* ExtensionDelegate.swift */,
+				69097D7F245AF3670078409B /* NotificationController.swift */,
+				69097D81245AF3670078409B /* NotificationView.swift */,
+				69097D83245AF3680078409B /* Assets.xcassets */,
+				69097D88245AF3680078409B /* Info.plist */,
+				69097D89245AF3680078409B /* PushNotificationPayload.apns */,
+				69097D85245AF3680078409B /* Preview Content */,
+			);
+			path = "PillzyWatch Extension";
+			sourceTree = "<group>";
+		};
+		69097D85245AF3680078409B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				69097D86245AF3680078409B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6966183B2451B3BA007F5D72 = {
 			isa = PBXGroup;
 			children = (
 				69CED456245A1E3E00D24F4D /* Realm.framework */,
 				69CED457245A1E3E00D24F4D /* RealmSwift.framework */,
 				696618462451B3BA007F5D72 /* Pillzy */,
+				69097D69245AF3620078409B /* PillzyWatch */,
+				69097D78245AF3670078409B /* PillzyWatch Extension */,
 				696618452451B3BA007F5D72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				696618442451B3BA007F5D72 /* Pillzy.app */,
+				69097D68245AF3620078409B /* PillzyWatch.app */,
+				69097D74245AF3670078409B /* PillzyWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +218,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		69097D67245AF3620078409B /* PillzyWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69097D94245AF3680078409B /* Build configuration list for PBXNativeTarget "PillzyWatch" */;
+			buildPhases = (
+				69097D66245AF3620078409B /* Resources */,
+				69097D90245AF3680078409B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69097D77245AF3670078409B /* PBXTargetDependency */,
+			);
+			name = PillzyWatch;
+			productName = PillzyWatch;
+			productReference = 69097D68245AF3620078409B /* PillzyWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		69097D73245AF3670078409B /* PillzyWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69097D93245AF3680078409B /* Build configuration list for PBXNativeTarget "PillzyWatch Extension" */;
+			buildPhases = (
+				69097D70245AF3670078409B /* Sources */,
+				69097D71245AF3670078409B /* Frameworks */,
+				69097D72245AF3670078409B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PillzyWatch Extension";
+			productName = "PillzyWatch Extension";
+			productReference = 69097D74245AF3670078409B /* PillzyWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		696618432451B3BA007F5D72 /* Pillzy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 696618582451B3BC007F5D72 /* Build configuration list for PBXNativeTarget "Pillzy" */;
@@ -117,10 +260,12 @@
 				696618412451B3BA007F5D72 /* Frameworks */,
 				696618422451B3BA007F5D72 /* Resources */,
 				69CED45C245A1E4300D24F4D /* Embed Frameworks */,
+				69097D8D245AF3680078409B /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				69097D8B245AF3680078409B /* PBXTargetDependency */,
 			);
 			name = Pillzy;
 			productName = Pillzy;
@@ -137,6 +282,12 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Daniel Khromov";
 				TargetAttributes = {
+					69097D67245AF3620078409B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					69097D73245AF3670078409B = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
 					696618432451B3BA007F5D72 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
@@ -156,11 +307,31 @@
 			projectRoot = "";
 			targets = (
 				696618432451B3BA007F5D72 /* Pillzy */,
+				69097D67245AF3620078409B /* PillzyWatch */,
+				69097D73245AF3670078409B /* PillzyWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		69097D66245AF3620078409B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69097D6E245AF3660078409B /* Assets.xcassets in Resources */,
+				69097D6C245AF3620078409B /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69097D72245AF3670078409B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69097D87245AF3680078409B /* Preview Assets.xcassets in Resources */,
+				69097D84245AF3680078409B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		696618422451B3BA007F5D72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +345,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		69097D70245AF3670078409B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69097D7C245AF3670078409B /* HostingController.swift in Sources */,
+				69097D7A245AF3670078409B /* ContentView.swift in Sources */,
+				69097D80245AF3670078409B /* NotificationController.swift in Sources */,
+				69097D7E245AF3670078409B /* ExtensionDelegate.swift in Sources */,
+				69097D82245AF3670078409B /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		696618402451B3BA007F5D72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,7 +371,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		69097D77245AF3670078409B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69097D73245AF3670078409B /* PillzyWatch Extension */;
+			targetProxy = 69097D76245AF3670078409B /* PBXContainerItemProxy */;
+		};
+		69097D8B245AF3680078409B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69097D67245AF3620078409B /* PillzyWatch */;
+			targetProxy = 69097D8A245AF3680078409B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		69097D6A245AF3620078409B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69097D6B245AF3620078409B /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		696618522451B3BC007F5D72 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -200,6 +404,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		69097D8E245AF3680078409B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQT34X72YN;
+				IBSC_MODULE = PillzyWatch_Extension;
+				INFOPLIST_FILE = PillzyWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		69097D8F245AF3680078409B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQT34X72YN;
+				IBSC_MODULE = PillzyWatch_Extension;
+				INFOPLIST_FILE = PillzyWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		69097D91245AF3680078409B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PillzyWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = CQT34X72YN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "PillzyWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		69097D92245AF3680078409B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"PillzyWatch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = CQT34X72YN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "PillzyWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = danonchik.Pillzy.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
 		696618562451B3BC007F5D72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -365,6 +655,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		69097D93245AF3680078409B /* Build configuration list for PBXNativeTarget "PillzyWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69097D91245AF3680078409B /* Debug */,
+				69097D92245AF3680078409B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69097D94245AF3680078409B /* Build configuration list for PBXNativeTarget "PillzyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69097D8E245AF3680078409B /* Debug */,
+				69097D8F245AF3680078409B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6966183F2451B3BA007F5D72 /* Build configuration list for PBXProject "Pillzy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

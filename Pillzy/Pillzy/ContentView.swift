@@ -90,11 +90,12 @@ extension View
                 Text(medName)
                     .font(.system(.largeTitle, design: .rounded)).bold().opacity(0.6)
                     .padding()
-                    
                 }
                 
                 Spacer()
             }
+        }.onTapGesture {
+            
         }
     }
 }
