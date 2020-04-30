@@ -13,7 +13,6 @@ import RealmSwift
 class Pill: Object {
     @objc dynamic var name = ""
     @objc dynamic var meal = ""
-    @objc dynamic var time = Date()
 }
 
 struct AddPill: View {
@@ -23,13 +22,14 @@ struct AddPill: View {
         formatter.dateStyle = .long
         return formatter
     }
-    
+    @State var added = false
     @State var pillName = ""
     @State var meal = ""
     @State private var remind = Date()
     @State var onTapBeforeMeal = false
     @State var onTapWithMeal = false
     @State var onTapAftereMeal = false
+    @State var addedViaPlus = false
     let pill = Pill()
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -67,15 +67,38 @@ struct AddPill: View {
                             self.pill.meal = "After"
                         }.foregroundColor(onTapAftereMeal ? .pink : Color("LighterBackground"))
                     }
+                    HStack{
                     Text("Notification").bold()
                         .padding()
+                        Button(action: {
+                            if(self.pillName != "")
+                            {
+                            self.addedViaPlus = true
+                            let content = UNMutableNotificationContent()
+                            content.title = "Drink \(self.pill.name)"
+                            content.subtitle = "\(self.pill.meal) meal"
+                            content.sound = UNNotificationSound.default
+                                let calendar = Calendar.autoupdatingCurrent
+                                let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
+                                print(calendar.dateComponents([.hour, .minute],from: self.remind))
+                            // choose a random identifier
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                            // add our notification request
+                            UNUserNotificationCenter.current().add(request)
+                            }
+                        }, label: {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.pink)
+                                .font(.title)
+                        })
+                        Text("<- click to add more")
+                    
+                    }
                     DatePicker("", selection: $remind, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                     Button(action: {
-                        if(self.pillName != ""){
                             do{
                                 self.pill.name = self.pillName
-                                self.pill.time = self.remind
                                 try realm.write({
                                     realm.add(self.pill)
                                 })
@@ -84,18 +107,18 @@ struct AddPill: View {
                             catch{
                                 print(error.localizedDescription)
                             }
-                        
-                        let content = UNMutableNotificationContent()
-                        content.title = "Drink \(self.pill.name)"
-                        content.subtitle = "\(self.pill.meal) meal"
-                        content.sound = UNNotificationSound.default
-                            let calendar = Calendar.autoupdatingCurrent
-                            let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.pill.time), repeats: true)
-                        
-                        // choose a random identifier
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                        // add our notification request
-                        UNUserNotificationCenter.current().add(request)
+                        if(self.addedViaPlus == false){
+                            let content = UNMutableNotificationContent()
+                                           content.title = "Drink \(self.pill.name)"
+                                           content.subtitle = "\(self.pill.meal) meal"
+                                           content.sound = UNNotificationSound.default
+                                               let calendar = Calendar.autoupdatingCurrent
+                                               let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
+                                               print(calendar.dateComponents([.hour, .minute],from: self.remind))
+                                           // choose a random identifier
+                                           let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                                           // add our notification request
+                                           UNUserNotificationCenter.current().add(request)
                         }
                         self.presentationMode.wrappedValue.dismiss()
                         
