@@ -13,9 +13,17 @@ import RealmSwift
 class Pill: Object {
     @objc dynamic var name = ""
     @objc dynamic var meal = ""
+    @objc dynamic var time = Date()
 }
 
 struct AddPill: View {
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+    
     @State var pillName = ""
     @State var meal = ""
     @State private var remind = Date()
@@ -25,38 +33,20 @@ struct AddPill: View {
     let pill = Pill()
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-            ZStack{
-                Color("Background")
-                    .edgesIgnoringSafeArea(.all)
-                ScrollView{
+        ZStack{
+            Color("Background")
+                .edgesIgnoringSafeArea(.all)
+            ScrollView{
                 VStack(alignment: .leading) {
-                  Text("Add").font(.system(.largeTitle, design: .rounded)).bold().padding()
-                        Text("Pills name").bold()
+                    Text("Add").font(.system(.largeTitle, design: .rounded)).bold().padding()
+                    Text("Pills name").bold()
                         .padding()
                     TextField("Name", text: $pillName)
                         .padding()
                         .background(Color("LighterBackground").cornerRadius(20))
                         .padding()
-                        
-                    
-    //                Button(action: {
-    //                    let content = UNMutableNotificationContent()
-    //                    content.title = "Feed the cat"
-    //                    content.subtitle = "It looks hungry"
-    //                    content.sound = UNNotificationSound.default
-    //
-    //                    // show this notification five seconds from now
-    //                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-    //
-    //                    // choose a random identifier
-    //                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-    //
-    //                    // add our notification request
-    //                    UNUserNotificationCenter.current().add(request)
-    //                }, label: {Text("n").padding()})
-                    
                     Text("Food & pills").bold()
-                    .padding()
+                        .padding()
                     HStack{
                         food(align: "before").onTapGesture {
                             self.onTapBeforeMeal = true
@@ -79,43 +69,41 @@ struct AddPill: View {
                     }
                     Text("Notification").bold()
                         .padding()
-                    DatePicker("", selection: $remind, displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $remind, in: Date()..., displayedComponents: .hourAndMinute)
                         .labelsHidden()
+                    //print(remind)
+                    Text("\(remind)")
                     Button(action: {
                         if(self.pillName != ""){
-                        do{
-                            self.pill.name = self.pillName
-                            try realm.write({
-                                realm.add(self.pill)
-                                for i in res{
-                                    print(i.name)
-                                    print(i.meal)
-                                }
-                            })
-                            
-                        }
-                        catch{
-                            print(error.localizedDescription)
-                        }
+                            do{
+                                self.pill.name = self.pillName
+                                self.pill.time = self.remind
+                                try realm.write({
+                                    realm.add(self.pill)
+                                })
+                                
+                            }
+                            catch{
+                                print(error.localizedDescription)
+                            }
                         }
                         let content = UNMutableNotificationContent()
                         content.title = "Drink \(self.pill.name)"
                         content.subtitle = "\(self.pill.meal) meal"
                         content.sound = UNNotificationSound.default
-                        
-                        // show this notification five seconds from now
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                        let calendar = Calendar.current
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.pill.time), repeats: true)
                         
                         // choose a random identifier
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                        
+                        print(self.pill.time)
                         // add our notification request
                         UNUserNotificationCenter.current().add(request)
                         self.presentationMode.wrappedValue.dismiss()
                         
                     }, label: {
                         Text("Save").font(.title).bold().foregroundColor(.white)
-                           .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .foregroundColor(.pink)
                             .background(Color(.systemPink))
@@ -123,11 +111,9 @@ struct AddPill: View {
                             .padding()
                             .lightShadow()
                             .darkShadow()
-                            
-                        
                     })
                     Spacer()
-            }
+                }
             }.onAppear {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
@@ -158,28 +144,28 @@ extension View
                 if(align == "before"){
                     HStack{
                         Image(align)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 90, height: 90)
-                }
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 90)
+                    }
                     
                 }
                 if(align == "with"){
-                HStack{
-                    Image(align)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 90, height: 90)
-                }
+                    HStack{
+                        Image(align)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 90)
+                    }
                 }
                 if(align == "after"){
-                HStack{
-                    Image(align)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 90, height: 90)
+                    HStack{
+                        Image(align)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 90, height: 90)
+                    }
                 }
-                }
-            }
+        }
     }
 }
