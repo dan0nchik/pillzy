@@ -32,7 +32,7 @@ struct ContentView: View {
                 ScrollView{
                 ForEach(res, id: \.self){ i in
                     self.card(with: i.name, time: "")
-                    .padding(20)
+                        .padding(20)
                 }
                 }
                     Spacer()
@@ -62,6 +62,11 @@ struct ContentView: View {
         .edgesIgnoringSafeArea(.all)
         
     }
+    
+    func delete(at offsets: IndexSet) {
+        
+    }
+    
 }
 
 extension View
@@ -77,7 +82,7 @@ extension View
         return ZStack{
         RoundedRectangle(cornerRadius: 20)
             .fill(Color("Background"))
-            .frame(width: 330, height: 120)
+            .frame(width: 340, height: 120)
             .lightShadow()
             .darkShadow()
             HStack{
@@ -94,8 +99,6 @@ extension View
                 
                 Spacer()
             }
-        }.onTapGesture {
-            
         }
     }
 }
