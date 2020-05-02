@@ -12,6 +12,11 @@ struct ContentView: View {
     @State var showAddMed = false
     @State private var isPressed: Bool = false
     @State private var navigateToSettings = false
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }
     var body: some View {
         
         ZStack{
