@@ -75,7 +75,7 @@ struct AddPill: View {
                             {
                             self.addedViaPlus = true
                             let content = UNMutableNotificationContent()
-                            content.title = "Drink \(self.pill.name)"
+                                content.title = "Drink \(self.pill.name)"
                             content.subtitle = "\(self.pill.meal) meal"
                             content.sound = UNNotificationSound.default
                                 let calendar = Calendar.autoupdatingCurrent
@@ -97,6 +97,8 @@ struct AddPill: View {
                     DatePicker("", selection: $remind, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                     Button(action: {
+                        
+                        if(self.pillName != ""){
                             do{
                                 self.pill.name = self.pillName
                                 try realm.write({
@@ -109,7 +111,7 @@ struct AddPill: View {
                             }
                         if(self.addedViaPlus == false){
                             let content = UNMutableNotificationContent()
-                                           content.title = "Drink \(self.pill.name)"
+                            content.title = "Drink \(self.pill.name)"
                                            content.subtitle = "\(self.pill.meal) meal"
                                            content.sound = UNNotificationSound.default
                                                let calendar = Calendar.autoupdatingCurrent
@@ -119,6 +121,7 @@ struct AddPill: View {
                                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                                            // add our notification request
                                            UNUserNotificationCenter.current().add(request)
+                        }
                         }
                         self.presentationMode.wrappedValue.dismiss()
                         

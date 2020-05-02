@@ -29,6 +29,7 @@
 		69CED45D245A1E4400D24F4D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED457245A1E3E00D24F4D /* RealmSwift.framework */; };
 		69CED45E245A1E4400D24F4D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69CED457245A1E3E00D24F4D /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69CED460245A2C7900D24F4D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CED45F245A2C7900D24F4D /* Data.swift */; };
+		69EBADDD245C26020008ECB4 /* Setings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EBADDC245C26020008ECB4 /* Setings.swift */; };
 		69FE24A52459F58800BD7C2B /* AddPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE24A42459F58800BD7C2B /* AddPill.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		69CED456245A1E3E00D24F4D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		69CED457245A1E3E00D24F4D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		69CED45F245A2C7900D24F4D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		69EBADDC245C26020008ECB4 /* Setings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setings.swift; sourceTree = "<group>"; };
 		69FE24A42459F58800BD7C2B /* AddPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +201,7 @@
 				6966184B2451B3BA007F5D72 /* ContentView.swift */,
 				69FE24A42459F58800BD7C2B /* AddPill.swift */,
 				69CED45F245A2C7900D24F4D /* Data.swift */,
+				69EBADDC245C26020008ECB4 /* Setings.swift */,
 				6966184D2451B3BC007F5D72 /* Assets.xcassets */,
 				696618522451B3BC007F5D72 /* LaunchScreen.storyboard */,
 				696618552451B3BC007F5D72 /* Info.plist */,
@@ -364,6 +367,7 @@
 				696618482451B3BA007F5D72 /* AppDelegate.swift in Sources */,
 				69CED460245A2C7900D24F4D /* Data.swift in Sources */,
 				6966184A2451B3BA007F5D72 /* SceneDelegate.swift in Sources */,
+				69EBADDD245C26020008ECB4 /* Setings.swift in Sources */,
 				69FE24A52459F58800BD7C2B /* AddPill.swift in Sources */,
 				6966184C2451B3BA007F5D72 /* ContentView.swift in Sources */,
 			);
