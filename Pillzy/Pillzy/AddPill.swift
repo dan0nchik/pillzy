@@ -108,6 +108,13 @@ struct AddPill: View {
                             content.title = "Drink \(self.pill.name)"
                                            content.body = "\(self.pill.meal) meal"
                                            content.sound = UNNotificationSound.default
+                                
+                                let take = UNNotificationAction(identifier: "take", title: "Take", options: .foreground)
+                                
+                                let categories = UNNotificationCategory(identifier: "action", actions: [take], intentIdentifiers: [])
+                                content.categoryIdentifier = "action"
+                                
+                                UNUserNotificationCenter.current().setNotificationCategories([categories])
                                                let calendar = Calendar.autoupdatingCurrent
                                                let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
                                            // choose a random identifier
@@ -161,6 +168,8 @@ struct AddPill_Previews: PreviewProvider {
         AddPill()
     }
 }
+
+
 
 extension View
 {
