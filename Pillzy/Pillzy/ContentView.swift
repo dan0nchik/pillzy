@@ -91,11 +91,12 @@ extension View
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .padding([.leading], 50)
-                    VStack(alignment: .leading){
+                    
                         Text(medName)
                             .font(.system(.largeTitle, design: .rounded)).bold().opacity(0.6)
                             .padding()
-                    }
+                    
+                    Image(systemName: index.taken ? "checkmark.circle.fill" : "").foregroundColor(.green).font(.title)
                     
                     Spacer()
                 }.padding(.top, 20)
@@ -112,10 +113,39 @@ extension View
                         catch{
                             print(error.localizedDescription)
                         }
-                    }, label: {Text("Delete")})
+                    }, label: {
+                        Text("Delete")
+                        .padding(10)
+                        .foregroundColor(.pink)
+                            .frame(width: 100, height: 30)
+                        .background(Color("Background"))
+                        .cornerRadius(5)
+                        .padding()
+                        .lightShadow()
+                        .darkShadow()
+                    })
                     Button(action: {
-                        
-                    }, label: {Text("Take")})
+                        do{
+                            try
+                            realm.write({
+                                index.taken = true
+                            })
+                            
+                        }
+                        catch{
+                        print(error.localizedDescription)
+                        }
+                    }, label: {
+                        Text("Take")
+                        .padding(10)
+                        .foregroundColor(.green)
+                            .frame(width: 100, height: 30)
+                        .background(Color("Background"))
+                        .cornerRadius(5)
+                        .padding()
+                        .lightShadow()
+                        .darkShadow()
+                    })
                     }.padding(20)
                 }
                 Spacer()
