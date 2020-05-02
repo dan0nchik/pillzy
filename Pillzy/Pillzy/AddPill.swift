@@ -13,6 +13,7 @@ import RealmSwift
 class Pill: Object {
     @objc dynamic var name = ""
     @objc dynamic var meal = ""
+    @objc dynamic var taken: Bool = false
 }
 
 struct AddPill: View {
@@ -76,7 +77,7 @@ struct AddPill: View {
                             self.addedViaPlus = true
                             let content = UNMutableNotificationContent()
                                 content.title = "Drink \(self.pill.name)"
-                            content.subtitle = "\(self.pill.meal) meal"
+                            content.body = "\(self.pill.meal) meal"
                             content.sound = UNNotificationSound.default
                                 let calendar = Calendar.autoupdatingCurrent
                                 let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
@@ -105,7 +106,7 @@ struct AddPill: View {
                             
                             let content = UNMutableNotificationContent()
                             content.title = "Drink \(self.pill.name)"
-                                           content.subtitle = "\(self.pill.meal) meal"
+                                           content.body = "\(self.pill.meal) meal"
                                            content.sound = UNNotificationSound.default
                                                let calendar = Calendar.autoupdatingCurrent
                                                let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
