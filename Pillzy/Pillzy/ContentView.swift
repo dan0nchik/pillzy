@@ -21,49 +21,45 @@ struct ContentView: View {
         
         ZStack{
             Color("Background")
-                VStack{
-                    HStack {
-                        VStack(alignment: .leading){
-                            Text("Pillzy").font(.system(.largeTitle, design: .rounded)).bold().padding(.top,60)
-                                .padding(.leading)
-                            Text("Stay healthier").font(.system(.largeTitle, design: .rounded)).foregroundColor(.black).opacity(0.5).padding()
-                        }
-                        Spacer()
-                    }
-                    ScrollView{
-                        ForEach(res, id: \.self){ i in
-                            self.card(with: i.name, time: "")
-                                .padding(20)
-                        }
+            VStack{
+                HStack {
+                    VStack(alignment: .leading){
+                        Text("Pillzy").font(.system(.largeTitle, design: .rounded)).bold().padding(.top,60)
+                            .padding(.leading)
+                        Text("Stay healthier").font(.system(.largeTitle, design: .rounded)).foregroundColor(.black).opacity(0.5).padding()
                     }
                     Spacer()
                 }
-                
-                VStack{
-                    Spacer()
-                    Button(action: {
-                        self.showAddMed.toggle()
-                        self.isPressed.toggle()
-                    }) {
-                        Text("+")
-                            .foregroundColor(.pink)
-                            .font(.largeTitle)
-                            .padding(35)
-                    }.sheet(isPresented: $showAddMed, content: {AddPill()})
-                        .background(Color("Background"))
-                        .mask(Circle())
-                        .lightShadow()
-                        .darkShadow()
-                        .padding()
-                        .scaleEffect(self.isPressed ? 0.98: 1)
-                        .foregroundColor(.primary)
-                        .animation(.spring())
+                ScrollView{
+                    ForEach(res, id: \.self){ i in
+                        self.card(with: i.name, time: "")
+                            .padding(20)
+                    }
                 }
-            }.edgesIgnoringSafeArea(.all)
-    }
-    
-    func delete(at offsets: IndexSet) {
-        
+                Spacer()
+            }
+            
+            VStack{
+                Spacer()
+                Button(action: {
+                    self.showAddMed.toggle()
+                    self.isPressed.toggle()
+                }) {
+                    Text("+")
+                        .foregroundColor(.pink)
+                        .font(.largeTitle)
+                        .padding(35)
+                }.sheet(isPresented: $showAddMed, content: {AddPill()})
+                    .background(Color("Background"))
+                    .mask(Circle())
+                    .lightShadow()
+                    .darkShadow()
+                    .padding()
+                    .scaleEffect(self.isPressed ? 0.98: 1)
+                    .foregroundColor(.primary)
+                    .animation(.spring())
+            }
+        }.edgesIgnoringSafeArea(.all)
     }
     
 }
