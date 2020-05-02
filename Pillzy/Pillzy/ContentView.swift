@@ -10,7 +10,7 @@ import SwiftUI
 import RealmSwift
 struct ContentView: View {
     @State var showAddMed = false
-    @State private var isPressed: Bool = false
+    @State public var isPressed: Bool = false
     @State private var navigateToSettings = false
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -32,8 +32,11 @@ struct ContentView: View {
                 }
                 ScrollView{
                     ForEach(res, id: \.self){ i in
-                        self.card(with: i.name, time: "")
-                            .padding(20)
+                        self.card(with: i.name, time: "", tap: self.isPressed)
+                            .onTapGesture {
+                                self.isPressed.toggle()
+                        }
+                        .padding(20)
                     }
                 }
                 Spacer()
@@ -55,9 +58,6 @@ struct ContentView: View {
                     .lightShadow()
                     .darkShadow()
                     .padding()
-                    .scaleEffect(self.isPressed ? 0.98: 1)
-                    .foregroundColor(.primary)
-                    .animation(.spring())
             }
         }.edgesIgnoringSafeArea(.all)
     }
@@ -73,25 +73,42 @@ extension View
         return self.shadow(color: Color("Dark shadow"), radius: 8, x: 8, y: 8)
     }
     
-    func card(with medName: String, time: String) -> some View{
+    func card(with medName: String, time: String, tap: Bool) -> some View{
+        
         return ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color("Background"))
-                .frame(width: 340, height: 120)
+                .frame(width: 340, height: tap ? 200 : 120)
                 .lightShadow()
                 .darkShadow()
-            HStack{
-                Image("pill2")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
-                    .padding(.leading, 70)
-                VStack(alignment: .leading){
-                    Text(medName)
-                        .font(.system(.largeTitle, design: .rounded)).bold().opacity(0.6)
-                        .padding()
-                }
+            
+            VStack{
+                HStack{
+                    Image("pill2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                        .padding([.leading], 50)
+                    VStack(alignment: .leading){
+                        Text(medName)
+                            .font(.system(.largeTitle, design: .rounded)).bold().opacity(0.6)
+                            .padding()
+                    }
+                    
+                    Spacer()
+                }.padding(.top, 20)
                 
+                if tap
+                {
+                HStack{
+                    Button(action: {
+                        
+                    }, label: {Text("Delete")})
+                    Button(action: {
+                        
+                    }, label: {Text("Take")})
+                    }.padding(20)
+                }
                 Spacer()
             }
         }
