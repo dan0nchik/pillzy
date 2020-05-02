@@ -99,6 +99,21 @@ struct AddPill: View {
                     Button(action: {
                         
                         if(self.pillName != ""){
+                     
+                            if(self.addedViaPlus == false)
+                            {
+                            
+                            let content = UNMutableNotificationContent()
+                            content.title = "Drink \(self.pill.name)"
+                                           content.subtitle = "\(self.pill.meal) meal"
+                                           content.sound = UNNotificationSound.default
+                                               let calendar = Calendar.autoupdatingCurrent
+                                               let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
+                                           // choose a random identifier
+                                           let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                                           // add our notification request
+                                           UNUserNotificationCenter.current().add(request)
+                            }
                             do{
                                 self.pill.name = self.pillName
                                 try realm.write({
@@ -109,20 +124,8 @@ struct AddPill: View {
                             catch{
                                 print(error.localizedDescription)
                             }
-                        if(self.addedViaPlus == false){
-                            let content = UNMutableNotificationContent()
-                            content.title = "Drink \(self.pill.name)"
-                                           content.subtitle = "\(self.pill.meal) meal"
-                                           content.sound = UNNotificationSound.default
-                                               let calendar = Calendar.autoupdatingCurrent
-                                               let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: self.remind), repeats: true)
-                                               print(calendar.dateComponents([.hour, .minute],from: self.remind))
-                                           // choose a random identifier
-                                           let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                                           // add our notification request
-                                           UNUserNotificationCenter.current().add(request)
                         }
-                        }
+                        print(self.pill)
                         self.presentationMode.wrappedValue.dismiss()
                         
                     }, label: {
