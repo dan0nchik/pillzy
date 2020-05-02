@@ -12,6 +12,8 @@ struct ContentView: View {
     @State var showAddMed = false
     @State public var isPressed: Bool = false
     @State private var navigateToSettings = false
+    @State private var deleted = false
+    @State private var taken = false
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -32,7 +34,7 @@ struct ContentView: View {
                 }
                 ScrollView{
                     ForEach(res, id: \.self){ i in
-                        self.card(with: i.name, time: "", tap: self.isPressed)
+                        self.card(with: i.name, time: "", tap: self.isPressed, index: i)
                             .onTapGesture {
                                 self.isPressed.toggle()
                         }
@@ -73,7 +75,7 @@ extension View
         return self.shadow(color: Color("Dark shadow"), radius: 8, x: 8, y: 8)
     }
     
-    func card(with medName: String, time: String, tap: Bool) -> some View{
+    func card(with medName: String, time: String, tap: Bool, index: Pill) -> some View{
         
         return ZStack{
             RoundedRectangle(cornerRadius: 20)
@@ -102,7 +104,14 @@ extension View
                 {
                 HStack{
                     Button(action: {
-                        
+                        do{
+                            try realm.write({
+                                realm.delete(index)
+                            })
+                        }
+                        catch{
+                            print(error.localizedDescription)
+                        }
                     }, label: {Text("Delete")})
                     Button(action: {
                         
