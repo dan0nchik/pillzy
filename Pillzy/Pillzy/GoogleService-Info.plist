@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1054357559072-l9esg1m4eqg3uueo536l9gk4jcdip6n2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1054357559072-l9esg1m4eqg3uueo536l9gk4jcdip6n2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBe7Co2tPmk55OPtwI-jVcTpWyKL_L0u9U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1054357559072</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>danonchik.Pillzy</string>
+	<key>PROJECT_ID</key>
+	<string>pillzy-3315b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pillzy-3315b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1054357559072:ios:f3386117264c6854a22945</string>
+	<key>DATABASE_URL</key>
+	<string>https://pillzy-3315b.firebaseio.com</string>
+</dict>
+</plist>
