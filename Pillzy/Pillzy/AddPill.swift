@@ -31,6 +31,7 @@ struct AddPill: View {
     @State var onTapWithMeal = false
     @State var onTapAftereMeal = false
     @State var addedViaPlus = false
+    @State var addNotificationPressed = false
     let pill = Pill()
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -75,6 +76,7 @@ struct AddPill: View {
                             if(self.pillName != "")
                             {
                             self.addedViaPlus = true
+                            self.addNotificationPressed.toggle()
                             let content = UNMutableNotificationContent()
                             content.title = "Drink \(self.pillName)"
                             content.body = "\(self.pill.meal) meal"
@@ -92,7 +94,7 @@ struct AddPill: View {
                                 .foregroundColor(.pink)
                                 .font(.title)
                         })
-                        Text("<- click to add more")
+                        Text("add more")
                     
                     }
                     DatePicker("", selection: $remind, displayedComponents: .hourAndMinute)
@@ -158,6 +160,9 @@ struct AddPill: View {
                     }
                 }
             }
+            if self.$addNotificationPressed.wrappedValue{
+                PopOver(close: $addNotificationPressed)
+            }
         }
     }
 }
@@ -169,6 +174,24 @@ struct AddPill_Previews: PreviewProvider {
     }
 }
 
+
+struct PopOver: View {
+    @Binding var close: Bool
+    var body: some View{
+        return ZStack{
+            Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
+            VStack{
+                Image(systemName: "checkmark")
+                Text("Added!")
+                Button(action: {self.close.toggle()}, label: {
+                    Text("Cool")
+                })
+            }.frame(width: 150, height: 150)
+            .background(Color.white)
+                .cornerRadius(20).shadow(radius: 20)
+                }
+    }
+}
 
 
 extension View
