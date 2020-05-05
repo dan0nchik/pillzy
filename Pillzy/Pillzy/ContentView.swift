@@ -8,12 +8,16 @@
 
 import SwiftUI
 import RealmSwift
+
+
+
 struct ContentView: View {
     @State var showAddMed = false
     @State public var isPressed: Bool = false
     @State private var navigateToSettings = false
     @State private var deleted = false
     @State private var taken = false
+    @State public var progress: Float = 0.0
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -31,6 +35,11 @@ struct ContentView: View {
                         Text("Stay healthier").font(.system(.largeTitle, design: .rounded)).foregroundColor(.black).opacity(0.5).padding()
                     }
                     Spacer()
+                    
+//                    ProgressBar(progress: self.$progress)
+//                    .frame(width: 100, height: 100)
+//                    .padding(40)
+                    
                 }
                 ScrollView{
                     ForEach(res, id: \.self){ i in
@@ -38,6 +47,7 @@ struct ContentView: View {
                             .onTapGesture {
                                 self.isPressed.toggle()
                         }
+                        
                         .padding(20)
                     }
                 }
@@ -130,7 +140,6 @@ extension View
                             realm.write({
                                 index.taken = true
                             })
-                            
                         }
                         catch{
                         print(error.localizedDescription)
@@ -154,7 +163,25 @@ extension View
     }
 }
 
-
+struct ProgressBar: View {
+    @Binding var progress: Float
+    @State var took = 0
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 15.0)
+                .opacity(0.3)
+                .foregroundColor(Color.red)
+            Circle()
+                .trim(from: 0.0, to: CGFloat(self.progress))
+                .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(Color.red)
+                .rotationEffect(Angle(degrees: 270))
+                .animation(.linear)
+            Text("Taken").bold()
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -76,7 +76,7 @@ struct AddPill: View {
                             {
                             self.addedViaPlus = true
                             let content = UNMutableNotificationContent()
-                                content.title = "Drink \(self.pill.name)"
+                            content.title = "Drink \(self.pillName)"
                             content.body = "\(self.pill.meal) meal"
                             content.sound = UNNotificationSound.default
                                 let calendar = Calendar.autoupdatingCurrent
@@ -105,7 +105,7 @@ struct AddPill: View {
                             {
                             
                             let content = UNMutableNotificationContent()
-                            content.title = "Drink \(self.pill.name)"
+                            content.title = "Drink \(self.pillName)"
                                            content.body = "\(self.pill.meal) meal"
                                            content.sound = UNNotificationSound.default
                                 
