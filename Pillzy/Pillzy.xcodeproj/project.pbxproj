@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		69097D84245AF3680078409B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69097D83245AF3680078409B /* Assets.xcassets */; };
 		69097D87245AF3680078409B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69097D86245AF3680078409B /* Preview Assets.xcassets */; };
 		69097D8C245AF3680078409B /* PillzyWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 69097D68245AF3620078409B /* PillzyWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		69655B432461F7D300435CD1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69655B422461F7D300435CD1 /* Session.swift */; };
+		69655B4524620D9100435CD1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69655B4424620D9100435CD1 /* Login.swift */; };
 		696618482451B3BA007F5D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696618472451B3BA007F5D72 /* AppDelegate.swift */; };
 		6966184A2451B3BA007F5D72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696618492451B3BA007F5D72 /* SceneDelegate.swift */; };
 		6966184C2451B3BA007F5D72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6966184B2451B3BA007F5D72 /* ContentView.swift */; };
@@ -110,6 +112,8 @@
 		69097D86245AF3680078409B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		69097D88245AF3680078409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69097D89245AF3680078409B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		69655B422461F7D300435CD1 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		69655B4424620D9100435CD1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		696618442451B3BA007F5D72 /* Pillzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		696618472451B3BA007F5D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		696618492451B3BA007F5D72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +177,6 @@
 				A37EA0D385D8A47B359B3B30 /* Pods-PillzyWatch Extension.debug.xcconfig */,
 				FA5806D80AF814446DB5E359 /* Pods-PillzyWatch Extension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +248,8 @@
 				69CED45F245A2C7900D24F4D /* Data.swift */,
 				69B36BDD2461DBBC004FD9AB /* Main.swift */,
 				69B36BDF2461E2C9004FD9AB /* Settings.swift */,
+				69655B422461F7D300435CD1 /* Session.swift */,
+				69655B4424620D9100435CD1 /* Login.swift */,
 				6966184D2451B3BC007F5D72 /* Assets.xcassets */,
 				696618522451B3BC007F5D72 /* LaunchScreen.storyboard */,
 				696618552451B3BC007F5D72 /* Info.plist */,
@@ -514,7 +519,9 @@
 				69CED460245A2C7900D24F4D /* Data.swift in Sources */,
 				6966184A2451B3BA007F5D72 /* SceneDelegate.swift in Sources */,
 				69FE24A52459F58800BD7C2B /* AddPill.swift in Sources */,
+				69655B432461F7D300435CD1 /* Session.swift in Sources */,
 				69B36BE02461E2C9004FD9AB /* Settings.swift in Sources */,
+				69655B4524620D9100435CD1 /* Login.swift in Sources */,
 				69B36BDE2461DBBC004FD9AB /* Main.swift in Sources */,
 				6966184C2451B3BA007F5D72 /* ContentView.swift in Sources */,
 			);

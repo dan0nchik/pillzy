@@ -7,11 +7,15 @@
 //
 
 import SwiftUI
-import RealmSwift
-
-
 
 struct ContentView: View {
+    
+    @EnvironmentObject var session: SessionStore
+    
+    func getUser(){
+        session.listen()
+    }
+    
     init() {
         UITabBar.appearance().barTintColor = UIColor(named: "Background")
         UITabBar.appearance().tintColor = UIColor.clear
@@ -19,6 +23,11 @@ struct ContentView: View {
     }
 
     var body: some View{
+        
+        Group{
+            
+            if session.session != nil
+            {
         TabView{
             Main()
             .tabItem({
@@ -31,6 +40,11 @@ struct ContentView: View {
                 Text("Settings")
             })
         }
+            }
+            else{
+                Login()
+            }
+        }.onAppear(perform: getUser)
     }
 }
 
@@ -38,7 +52,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SessionStore())
     }
 }
 
